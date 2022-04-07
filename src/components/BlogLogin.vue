@@ -5,13 +5,13 @@
         <h1 class="text-center text-3xl">Вход</h1>
         <div>
           <label for="" class="block mt-5 font-bold text-gray-600">Email</label>
-          <input type="email" class="border-2 text-xl p-1" v-model="email"/>
+          <input type="email" class="border-2 text-xl p-1" v-model="user.email"/>
         </div>
         <div>
           <label for="" class="block mt-5 font-bold text-gray-600"
             >Пароль</label
           >
-          <input type="password" class="border-2 text-xl p-1" v-model="password"/>
+          <input type="password" class="border-2 text-xl p-1" v-model="user.password"/>
         </div>
         <button class="border-2 mt-5 p-3 w-full hover:bg-gray-200" @click="login">
           Войти
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     login() {
-      if (localStorage.getItem('email') == this.email && localStorage.getItem('password') == this.password) {
+      if (localStorage.getItem('email') == this.user.email && localStorage.getItem('password') == this.user.password) {
         this.$store.commit('setIsActive', true)
         this.$router.push('/')
       }
